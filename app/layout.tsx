@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   description: 'Precision-picked LED strips and task lighting for gamers, creators, and night-owls',
   generator: 'v0.app',
   icons: {
-    icon: 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="%238F00FF"/><circle cx="35" cy="35" r="6" fill="%23FF0000"/><circle cx="65" cy="35" r="6" fill="%2300FF00"/><circle cx="35" cy="65" r="6" fill="%230000FF"/><circle cx="65" cy="65" r="8" fill="%23FFFFFF"/></svg>',
+    icon: '/favicon.jpg',
   },
 }
 
