@@ -1,34 +1,28 @@
 'use client'
 
+import Image from 'next/image'
+
 export default function ProductShowcase() {
   const products = [
     {
       name: 'Neon Pro RGB Strip',
-      price: '$89.99',
-      color: 'primary',
       specs: '5M, WiFi-Enabled, 16M Colors',
-      image: '✨',
+      image: '/product-1.jpg',
     },
     {
       name: 'Cyber Cyan Task Lamp',
-      price: '$129.99',
-      color: 'secondary',
       specs: '1200 Lumens, USB-C Charging',
-      image: '◆',
+      image: '/product-2.jpg',
     },
     {
       name: 'Ultra Controller Pro',
-      price: '$49.99',
-      color: 'accent',
       specs: 'App + Physical Controls',
-      image: '⚙',
+      image: '/product-3.jpg',
     },
     {
       name: 'Smart Controller Hub',
-      price: '$199.99',
-      color: 'primary',
       specs: '8 Zones, Voice Control',
-      image: '◎',
+      image: '/product-4.jpg',
     },
   ]
 
@@ -51,35 +45,37 @@ export default function ProductShowcase() {
               key={idx}
               className="group relative rounded-xl overflow-hidden border border-secondary/30 hover:border-primary/50 transition bg-gradient-to-br from-card to-card/50 hover:neon-border-primary"
             >
+              {/* Product Image */}
+              <div className="relative h-64 overflow-hidden bg-card/50">
+                <Image
+                  src={product.image || "/placeholder.svg"}
+                  alt={product.name}
+                  fill
+                  className="object-cover group-hover:scale-110 transition duration-500"
+                />
+                {/* Image overlay gradient */}
+                <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent opacity-40" />
+              </div>
+
               {/* Light leak effect on hover */}
               <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500 bg-gradient-to-br from-primary/30 via-transparent to-transparent" />
 
               {/* Product content */}
-              <div className="relative z-10 p-6 h-full flex flex-col">
-                {/* Icon/Image */}
-                <div className="text-5xl mb-4 opacity-60 group-hover:opacity-100 transition group-hover:glow-text-primary">
-                  {product.image}
-                </div>
-
+              <div className="relative z-10 p-6">
                 {/* Product name */}
                 <h3 className="text-lg font-bold mb-2 group-hover:glow-text-primary transition">
                   {product.name}
                 </h3>
 
                 {/* Specs */}
-                <p className="text-xs text-foreground/50 mb-4 flex-grow">
+                <p className="text-xs text-foreground/50 mb-4">
                   {product.specs}
                 </p>
 
-                {/* Price and CTA */}
-                <div className="flex items-center justify-between pt-4 border-t border-secondary/20">
-                  <span className="font-bold text-primary glow-text-primary">
-                    {product.price}
-                  </span>
-                  <button className="px-3 py-1 text-xs rounded-full bg-primary/20 text-primary border border-primary/50 hover:bg-primary hover:text-background transition">
-                    Add
-                  </button>
-                </div>
+                {/* CTA Button */}
+                <button className="w-full px-3 py-2 text-sm rounded-lg bg-primary/20 text-primary border border-primary/50 hover:bg-primary hover:text-background transition font-medium">
+                  View Details
+                </button>
               </div>
 
               {/* Glow effect */}
