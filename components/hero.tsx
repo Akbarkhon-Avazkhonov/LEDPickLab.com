@@ -27,8 +27,22 @@ export default function Hero({ mousePosition }: HeroProps) {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center pt-20 px-4 md:px-8 overflow-hidden">
-      {/* Animated grid background */}
-      <div className="absolute inset-0 opacity-10">
+      {/* Background image */}
+      <div
+        className="absolute inset-0"
+        style={{
+          backgroundImage: 'url(/hero-bg.jpg)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundAttachment: 'fixed',
+        }}
+      />
+
+      {/* Dark overlay for better text readability */}
+      <div className="absolute inset-0 bg-background/60 backdrop-blur-sm" />
+
+      {/* Animated grid background overlay */}
+      <div className="absolute inset-0 opacity-5">
         <div
           className="w-full h-full"
           style={{
